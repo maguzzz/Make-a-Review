@@ -1,3 +1,34 @@
+<?php
+
+$conn = mysqli_connect("localhost", "root", "", "review");
+
+$userName = $_POST["name"] ?? "";
+$userReview = $_POST["review"] ?? "";
+$userRating = 5;
+
+if (!$conn) {
+    echo "[Connection failed]<br>";
+}
+
+echo "[Connected successfully]<br>";
+
+
+if (!empty($userName) && !empty($userReview)) {
+
+    $sql = "INSERT INTO tb_reviews (userName, review, rating) VALUES ('$userName', '$userReview', '$userRating')";
+
+    if ($conn->query($sql) === true) {
+        echo "[New review created successfully]<br>";
+        header("Location: index.php");
+        exit();
+    } else {
+        echo "[Error creating review]<br>";
+    }
+} else if ($_SERVER["REQUEST_METHOD"] === "POST") {
+    echo "[Please fill out the whole form]<br>";
+}
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -17,33 +48,4 @@
     </form>
 
 </body>
-<?php
-
-$conn = mysqli_connect("localhost", "root", "", "review");
-
-$userName = $_POST["name"];
-$userReview = $_POST["review"];
-$userRating = 5;
-
-if (!$conn) {
-    echo "[Connection failed]<br>";
-}
-
-echo "Connected successfully <br>";
-
-if (!($userName != null && $userReview != null)) {
-    echo "[pls fill out the whole formula]";
-} else {
-    $sql = "INSERT INTO tb_reviews (userName, review, rating) VALUES ('$userName', '$userReview ', '$userRating')";
-
-    if ($conn->query($sql) === true) {
-        echo "[New review created successfully]";
-
-    } else {
-        echo "[Error creating review]";
-    }
-}
-
-?>
-
 </html>
