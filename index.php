@@ -27,6 +27,7 @@ if (!empty($userName) && !empty($userReview)) {
 } else if ($_SERVER["REQUEST_METHOD"] === "POST") {
     echo "[Please fill out the whole form]<br>";
 }
+
 ?>
 
 <!DOCTYPE html>
@@ -46,6 +47,23 @@ if (!empty($userName) && !empty($userReview)) {
         <input type="text" name="review"><br>
         <input type="submit" value="POST">
     </form>
-
 </body>
 </html>
+
+
+<?php 
+
+if($conn){
+    $sql = "SELECT * FROM tb_reviews";
+    $dbData = $conn->query($sql);
+    if($dbData-> num_rows > 0){
+        while($person = $dbData->fetch_assoc()) {
+            echo "Username |" . $person["userName"] . " - Review | " . $person["review"] . " - Stars |" . $person["rating"] . "<br>";
+        }
+
+    }else{
+        echo "[No reviews found]<br>";
+    }
+}
+
+?>
