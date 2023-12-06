@@ -36,15 +36,14 @@ if (!empty($userName) && !empty($userReview)) {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="Styles/index.css">
     <title>Review</title>
 </head>
 
 <body>
     <form action="index.php" method="post">
-        <label>name:</label>
-        <input type="text" name="name"><br>
-        <label>review:</label>
-        <input type="text" name="review"><br>
+        <input class="nameInput"  placeholder="Name" type="text" name="name"><br>
+        <textarea class="reviewInput" maxlength="200" placeholder="Review" type="text" name="review"> </textarea><br>
         <input type="submit" value="POST">
     </form>
 </body>
