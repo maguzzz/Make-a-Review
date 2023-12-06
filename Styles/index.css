@@ -1,0 +1,27 @@
+*{
+    margin: 0;
+    padding: 0;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.nameInput{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    text-indent: 20px;
+    width: 40%;
+    height: 3vw;
+    font-size: 2em;
+}
+
+.reviewInput{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: top;
+    text-indent: 20px;
+    width: 40%;
+    height: 15vw;
+    font-size: 2em;
+    resize: none;
+}
