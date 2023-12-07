@@ -175,6 +175,11 @@
 
 @media screen and (max-width: 600px){
 
+
+    #inputPage{
+        margin-bottom: 0em;
+    }
+
     .title{
         width: 100%;
         text-align: center;

@@ -39,6 +39,7 @@ if (!empty($userName) && !empty($userReview)) {
         <form action="index.php" method="post">
             <input id="inputBoxes" class="nameInput"  placeholder="Name" maxlength = "20" type="text" name="name" required><br>
             <textarea id="inputBoxes" class="reviewInput" maxlength="200" type="text" name="review" placeholder ="Review" required></textarea><br>
+            <input type="file" name="fileToUpload" id="fileToUpload">
             <input class="submitButton" type="submit" value="POST">
         </form>
     </div>
@@ -53,12 +54,19 @@ if ($conn) {
     $sql = "SELECT * FROM tb_reviews";
     $dbData = $conn->query($sql);
     if ($dbData->num_rows > 0) {
+        $reversedData = [];
         while ($person = $dbData->fetch_assoc()) {
-            echo "<div class ='reviewPost'>
-                        <div class='postDate'>". $person["postDate"] ." </div>
-                        <div class='postName'>" . $person['userName'] . "</div>
-                        <div class ='postReview'> <a>". $person["review"] ."</a></div>
-                  </div>";
+            $reversedData[] = "<div class ='reviewPost'>
+                                <div class='postDate'>". $person["postDate"] ." </div>
+                                <div class='postName'>" . $person['userName'] . "</div>
+                                <div class ='postReview'> <a>". $person["review"] ."</a></div>
+                              </div>";
+        }
+
+        $reversedData = array_reverse($reversedData);
+        
+        foreach ($reversedData as $review) {
+            echo $review;
         }
         echo "<div class ='bottomSpacing'></div>";
     } else {
