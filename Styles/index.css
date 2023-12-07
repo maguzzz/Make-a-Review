@@ -1,27 +1,141 @@
 *{
     margin: 0;
     padding: 0;
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: Manrope-Light;
+    font-weight: normal;
 }
 
-.nameInput{
+@font-face {
+    font-family: Manrope-Light;
+    src: url(../Fonts/Manrope-Light.ttf);
+}
+
+@font-face {
+    font-family: Manrope-ExtraLight;
+    src: url(../Fonts/Manrope-ExtraLight.ttf);
+}
+
+#inputPage{
+    width: 100%;
+    height: 100%;
+    overflow-y: hidden;
+    font-family: Manrope-Light;
+    padding-bottom: 1.5em;
+}
+
+.title{
+    width: 100%;
+    text-align: center;
+    padding-top: 5vw;
+    padding-bottom: 1vw;
+    font-size: 5em;
+}
+
+.reviewStars{
+    height: 10vw;
+}
+
+#inputBoxes{
     display: block;
     margin-left: auto;
     margin-right: auto;
-    text-indent: 20px;
     width: 40%;
-    height: 3vw;
     font-size: 2em;
+    border: none;
+    box-shadow: 0px 7px 17px rgba(0, 0, 0, 0.25);
+}
+.nameInput{
+    text-indent: 20px;
+    height: 3vw;
 }
 
 .reviewInput{
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
     text-align: top;
-    text-indent: 20px;
-    width: 40%;
-    height: 15vw;
-    font-size: 2em;
+    box-sizing: border-box;
+    padding: 20px;
+    height: 16vw;
     resize: none;
+}
+
+.submitButton{
+    border: none;
+    background-color: white;
+    box-shadow: 0px 7px 17px rgba(0, 0, 0, 0.25);
+    font-size: 2em;
+    width: 8%;
+    margin-left: 62%;
+    margin-top: .2em;
+    height: 3vw;
+}
+
+.submitButton:hover {
+    background-color: #ebebeb
+}
+
+.submitButton:active {
+  background-color: #ffffff;
+  transform: translateY(4px);
+}
+
+
+@media screen and (min-width: 600px) and (max-width: 1200px){    
+    #inputBoxes{
+
+        width: 80%;
+        font-size: 2em;
+    }
+    .nameInput{
+        text-indent: 20px;
+        height: 3em;
+    }
+    
+    .reviewInput{
+        height: 25vh;
+        resize: none;
+    }
+    
+    .submitButton{
+
+        width: 20%;
+        margin-left: 70%;
+        margin-top: .2em;
+        height: 5vh;
+    }
+}
+
+
+@media screen and (max-width: 600px){
+
+    .title{
+        width: 100%;
+        text-align: center;
+        padding-top: 5vw;
+        padding-bottom: 1vw;
+        font-size: 3em;
+    }
+
+    
+    #inputBoxes{
+
+        width: 80%;
+        font-size: 1.5em;
+    }
+    .nameInput{
+        text-indent: 20px;
+        font-size: 1.5em;
+        height: 2em;
+    }
+    
+    .reviewInput{
+        height: 25vh;
+        resize: none;
+    }
+    
+    .submitButton{
+        font-size: 1.5em;
+        width: 20%;
+        margin-left: 70%;
+        margin-top: .2em;
+        height: 5vh;
+    }
 }
