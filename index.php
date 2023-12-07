@@ -37,7 +37,7 @@ if (!empty($userName) && !empty($userReview)) {
         <h1 class="title">Review this website</h1>
         <div class="reviewStars"></div>
         <form action="index.php" method="post">
-            <input id="inputBoxes" class="nameInput"  placeholder="Name" maxlength = "15" type="text" name="name" required><br>
+            <input id="inputBoxes" class="nameInput"  placeholder="Name" maxlength = "20" type="text" name="name" required><br>
             <textarea id="inputBoxes" class="reviewInput" maxlength="200" type="text" name="review" placeholder ="Review" required></textarea><br>
             <input class="submitButton" type="submit" value="POST">
         </form>
@@ -56,7 +56,7 @@ if ($conn) {
         while ($person = $dbData->fetch_assoc()) {
             echo "<div class ='reviewPost'>
                         <div class='postDate'>". $person["postDate"] ." </div>
-                        <div class='postNameAndDate'>" . $person['userName'] . "</div>
+                        <div class='postName'>" . $person['userName'] . "</div>
                         <div class ='postReview'> <a>". $person["review"] ."</a></div>
                   </div>";
         }
