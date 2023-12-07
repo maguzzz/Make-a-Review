@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 05, 2023 at 05:31 PM
--- Server version: 10.4.32-MariaDB
--- PHP Version: 8.0.30
+-- Erstellungszeit: 07. Dez 2023 um 15:54
+-- Server-Version: 10.4.28-MariaDB
+-- PHP-Version: 8.2.4
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -18,48 +18,41 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `review`
+-- Datenbank: `review`
 --
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tb_reviews`
+-- Tabellenstruktur für Tabelle `tb_reviews`
 --
 
 CREATE TABLE `tb_reviews` (
   `id` int(11) NOT NULL,
   `userName` varchar(20) DEFAULT NULL,
   `review` varchar(200) DEFAULT NULL,
-  `rating` float DEFAULT NULL
+  `postDate` varchar(20) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Dumping data for table `tb_reviews`
---
-
-INSERT INTO `tb_reviews` (`id`, `userName`, `review`, `rating`) VALUES
-(1, 'Markus', 'Wow what a great website', 5);
-
---
--- Indexes for dumped tables
+-- Indizes der exportierten Tabellen
 --
 
 --
--- Indexes for table `tb_reviews`
+-- Indizes für die Tabelle `tb_reviews`
 --
 ALTER TABLE `tb_reviews`
   ADD PRIMARY KEY (`id`);
 
 --
--- AUTO_INCREMENT for dumped tables
+-- AUTO_INCREMENT für exportierte Tabellen
 --
 
 --
--- AUTO_INCREMENT for table `tb_reviews`
+-- AUTO_INCREMENT für Tabelle `tb_reviews`
 --
 ALTER TABLE `tb_reviews`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=32;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
