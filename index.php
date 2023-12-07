@@ -6,13 +6,6 @@ $userName = $_POST["name"] ?? "";
 $userReview = $_POST["review"] ?? "";
 $userRating = 5;
 
-if (!$conn) {
-    echo "[Connection failed]<br>";
-}
-
-echo "[Connected successfully]<br>";
-
-
 if (!empty($userName) && !empty($userReview)) {
 
     $sql = "INSERT INTO tb_reviews (userName, review, rating) VALUES ('$userName', '$userReview', '$userRating')";
@@ -25,7 +18,7 @@ if (!empty($userName) && !empty($userReview)) {
         echo "[Error creating review]<br>";
     }
 } else if ($_SERVER["REQUEST_METHOD"] === "POST") {
-    echo "[Please fill out the whole form]<br>";
+    echo "<script>console.log('[Please fill out the whole form]' );</script>";
 }
 
 ?>
@@ -41,26 +34,30 @@ if (!empty($userName) && !empty($userReview)) {
 </head>
 
 <body>
-    <form action="index.php" method="post">
-        <input class="nameInput"  placeholder="Name" type="text" name="name"><br>
-        <textarea class="reviewInput" maxlength="200" placeholder="Review" type="text" name="review"> </textarea><br>
-        <input type="submit" value="POST">
-    </form>
+    <div id = "inputPage">
+        <h1 class="title">Review this website</h1>
+        <div class="reviewStars"></div>
+        <form action="index.php" method="post">
+            <input id="inputBoxes" class="nameInput"  placeholder="Name" type="text" name="name" required><br>
+            <textarea id="inputBoxes" class="reviewInput" maxlength="200" type="text" name="review" placeholder ="Review" required> </textarea><br>
+            <input class="submitButton" type="submit" value="POST">
+        </form>
+    </div>
 </body>
 </html>
 
 
-<?php 
+<?php
 
-if($conn){
+if ($conn) {
     $sql = "SELECT * FROM tb_reviews";
     $dbData = $conn->query($sql);
-    if($dbData-> num_rows > 0){
-        while($person = $dbData->fetch_assoc()) {
+    if ($dbData->num_rows > 0) {
+        while ($person = $dbData->fetch_assoc()) {
             echo "Username |" . $person["userName"] . " - Review | " . $person["review"] . " - Stars |" . $person["rating"] . "<br>";
         }
 
-    }else{
+    } else {
         echo "[No reviews found]<br>";
     }
 }
