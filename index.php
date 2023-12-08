@@ -7,7 +7,7 @@ $userReview = $_POST["review"] ?? "";
 
 if (!empty($userName) && !empty($userReview)) {
 
-    $sql = "INSERT INTO tb_reviews (userName, review, postDate) VALUES ('$userName', '$userReview', DATE_FORMAT(NOW(), '%d-%m-%Y'))";
+    $sql = "INSERT INTO tb_reviews (userName, review, postDate) VALUES ('$userName', '$userReview', DATE_FORMAT(NOW(), '%d.%m.%Y'))";
 
     if ($conn->query($sql) === true) {
         echo "[New review created successfully]<br>";
@@ -35,11 +35,9 @@ if (!empty($userName) && !empty($userReview)) {
 <body>
     <div id = "inputPage">
         <h1 class="title">Review this website</h1>
-        <div class="reviewStars"></div>
-        <form action="index.php" method="post">
+        <form class="formCont"action="index.php" method="post">
             <input id="inputBoxes" class="nameInput"  placeholder="Name" maxlength = "20" type="text" name="name" required><br>
             <textarea id="inputBoxes" class="reviewInput" maxlength="200" type="text" name="review" placeholder ="Review" required></textarea><br>
-            <input type="file" name="fileToUpload" id="fileToUpload">
             <input class="submitButton" type="submit" value="POST">
         </form>
     </div>
