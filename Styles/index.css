@@ -223,17 +223,18 @@
   #postPage {
     min-height: 100vh;
     padding-bottom: 10em;
-    background-color: red;
   }
   .reviewPost {
     width: 90%;
   }
   .postName {
-    font-size: 1.5em;
+    font-size: 1.2em;
   }
 
   .postDate {
-    font-size: 1.5em;
+    font-size: 1.2em;
+    width: auto;
+
   }
 
   .postReview {
