@@ -36,7 +36,7 @@ if (!empty($userName) && !empty($userReview)) {
     <div id = "inputPage">
         <h1 class="title">Review this website</h1>
         <form class="formCont"action="index.php" method="post">
-            <input id="inputBoxes" class="nameInput"  placeholder="Name" maxlength = "20" type="text" name="name" required><br>
+            <input id="inputBoxes" class="nameInput"  placeholder="Name" maxlength = "16" type="text" name="name" required><br>
             <textarea id="inputBoxes" class="reviewInput" maxlength="200" type="text" name="review" placeholder ="Review" required></textarea><br>
             <input class="submitButton" type="submit" value="POST">
         </form>
