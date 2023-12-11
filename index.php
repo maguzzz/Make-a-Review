@@ -2,8 +2,11 @@
 
 $conn = mysqli_connect("localhost", "root", "", "review");
 
-$userName = $_POST["name"] ?? "";
+$userName =  $_POST["name"] ?? "";
 $userReview = $_POST["review"] ?? "";
+
+$userName = filter_var($userName, FILTER_SANITIZE_STRING);
+$userReview = filter_var($userReview, FILTER_SANITIZE_STRING);
 
 if (!empty($userName) && !empty($userReview)) {
 
@@ -33,16 +36,19 @@ if (!empty($userName) && !empty($userReview)) {
 </head>
 
 <body>
-    <div id = "inputPage">
+    <div id="inputPage">
         <h1 class="title">Review this website</h1>
-        <form class="formCont"action="index.php" method="post">
-            <input id="inputBoxes" class="nameInput"  placeholder="Name" maxlength = "16" type="text" name="name" required><br>
-            <textarea id="inputBoxes" class="reviewInput" maxlength="200" type="text" name="review" placeholder ="Review" required></textarea><br>
+        <form class="formCont" action="index.php" method="post">
+            <input id="inputBoxes" class="nameInput" placeholder="Name" maxlength="16" type="text" name="name"
+                required><br>
+            <textarea id="inputBoxes" class="reviewInput" maxlength="200" type="text" name="review" placeholder="Review"
+                required></textarea><br>
             <input class="submitButton" type="submit" value="POST">
         </form>
     </div>
 
 </body>
+
 </html>
 
 
